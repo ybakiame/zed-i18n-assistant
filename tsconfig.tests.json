@@ -1,0 +1,12 @@
+{
+  // Type-checks the test suite together with the server. Tests deliberately opt
+  // out of `noUncheckedIndexedAccess` (which the server keeps on): it is a
+  // src-quality guard, and forcing non-null assertions on every fixture index
+  // would add noise without buying real safety in tests.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": false
+  },
+  "include": ["server/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["server/dist"]
+}

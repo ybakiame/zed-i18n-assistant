@@ -1,0 +1,39 @@
+{
+  "name": "i18n-assistant-language-server",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Language server for configurable i18n inlay hints, hover, completion, diagnostics, definition, and references in Vue/TS/TSX/JS.",
+  "license": "MIT",
+  "author": "ybakiame <32604602+ybakiame@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ybakiame/zed-i18n-assistant.git"
+  },
+  "main": "server/dist/index.js",
+  "bin": {
+    "i18n-assistant-language-server": "server/dist/index.js"
+  },
+  "files": [
+    "server/dist"
+  ],
+  "scripts": {
+    "build": "bun run build:server",
+    "build:server": "bun build server/index.ts --target=node --packages=external --outfile=server/dist/index.js",
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.tests.json",
+    "schema:build": "bun scripts/generate-schema.ts",
+    "test": "bun test tests/*.test.ts",
+    "start": "bun server/index.ts",
+    "prepack": "bun run build:server",
+    "prepublishOnly": "bun run typecheck"
+  },
+  "dependencies": {
+    "htmlparser2": "latest",
+    "vscode-languageserver": "latest",
+    "vscode-languageserver-textdocument": "^1.0.15"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "ajv": "^8.20.0",
+    "typescript": "^7.0.2"
+  }
+}

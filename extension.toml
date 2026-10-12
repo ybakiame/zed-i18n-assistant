@@ -1,0 +1,11 @@
+id = "i18n-assistant-language-server"
+name = "i18n-assistant"
+version = "0.0.1"
+schema_version = 1
+authors = ["ybakiame <32604602+ybakiame@users.noreply.github.com>"]
+description = "i18n-ally-like i18n assistant for Zed: configurable inline translations for i18n keys in Vue/TS/TSX/JS, with hover, diagnostics, completion, definition, and references."
+repository = "https://github.com/ybakiame/zed-i18n-assistant"
+
+[language_servers.i18n-assistant]
+name = "I18n Assistant Language Server"
+languages = ["Vue.js", "TypeScript", "TSX", "JavaScript", "JSON", "JSONC", "HTML"]
